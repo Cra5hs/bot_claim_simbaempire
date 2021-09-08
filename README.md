@@ -25,7 +25,7 @@ const address = [{
   private_key: "your private key3 export from metamask"
 },];
 ```
-3.  Open terminal and ```cd {your bot_claim_simbaempire folder}```
+3.  Open terminal and ```cd {your bot_claim_simbaempire folder}/claim_simba```
 4.  ```npm install```
 5.  ```npm run start:proc```
 
