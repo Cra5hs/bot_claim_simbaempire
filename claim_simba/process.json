@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+        "name": "simba-claim",
+        "script": "./bin/www",
+        "port": "8887",
+        "env": {
+
+        }
+    }
+  ]
+}

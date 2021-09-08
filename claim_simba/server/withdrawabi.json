@@ -1,0 +1,1041 @@
+[{
+  "inputs": [{
+    "internalType": "contract ISimbaNft",
+    "name": "_simbaNft",
+    "type": "address"
+  }, {
+    "internalType": "contract IERC20",
+    "name": "_simToken",
+    "type": "address"
+  }, {
+    "internalType": "contract IWheel",
+    "name": "_wheel",
+    "type": "address"
+  }, {
+    "internalType": "contract Blacklister",
+    "name": "_blacklister",
+    "type": "address"
+  }, {
+    "internalType": "contract Adventure",
+    "name": "_adventureV1",
+    "type": "address"
+  }, {
+    "internalType": "contract Adventure",
+    "name": "_adventureV2",
+    "type": "address"
+  }, {
+    "internalType": "address",
+    "name": "supervisor",
+    "type": "address"
+  }],
+  "stateMutability": "nonpayable",
+  "type": "constructor"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": false,
+    "internalType": "address",
+    "name": "account",
+    "type": "address"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "simbaId",
+    "type": "uint256"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "monsterId",
+    "type": "uint256"
+  }],
+  "name": "Lose",
+  "type": "event"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": true,
+    "internalType": "address",
+    "name": "previousOwner",
+    "type": "address"
+  }, {
+    "indexed": true,
+    "internalType": "address",
+    "name": "newOwner",
+    "type": "address"
+  }],
+  "name": "OwnershipTransferred",
+  "type": "event"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": false,
+    "internalType": "address",
+    "name": "account",
+    "type": "address"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "simbaId",
+    "type": "uint256"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "monsterId",
+    "type": "uint256"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "prize",
+    "type": "uint256"
+  }],
+  "name": "Win",
+  "type": "event"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": false,
+    "internalType": "address",
+    "name": "account",
+    "type": "address"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "value",
+    "type": "uint256"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "feeRate",
+    "type": "uint256"
+  }],
+  "name": "Withdraw",
+  "type": "event"
+}, {
+  "inputs": [],
+  "name": "BASE_PRIZE_RATE",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "CANNOT_TRANSFER_TO_ZERO_ADDRESS",
+  "outputs": [{
+    "internalType": "string",
+    "name": "",
+    "type": "string"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "MAX_EXP",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "MAX_SIMBA_COUNT",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "MIN_DAYS_BETWEEN_WITHDRAWS",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "MIN_EXP",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "NOT_CURRENT_OWNER",
+  "outputs": [{
+    "internalType": "string",
+    "name": "",
+    "type": "string"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "REDUCE_EACH_TIME",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "REPEAT_AFTER",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "SKIP_WITHDRAW_FEE_DAYS",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "WITHDRAW_FEE",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "blacklister",
+  "outputs": [{
+    "internalType": "contract Blacklister",
+    "name": "",
+    "type": "address"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "from",
+    "type": "uint256"
+  }, {
+    "internalType": "uint256",
+    "name": "to",
+    "type": "uint256"
+  }],
+  "name": "buildRates",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "components": [{
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+    }, {
+      "internalType": "enum AdventureTypes.SimbaClass",
+      "name": "cl",
+      "type": "uint8"
+    }, {
+      "internalType": "uint256",
+      "name": "map",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "power",
+      "type": "uint256"
+    }, {
+      "internalType": "bool",
+      "name": "active",
+      "type": "bool"
+    }],
+    "internalType": "struct AdventureTypes.Monster",
+    "name": "monster",
+    "type": "tuple"
+  }],
+  "name": "createMonster",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "components": [{
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+    }, {
+      "internalType": "enum AdventureTypes.SimbaClass",
+      "name": "cl",
+      "type": "uint8"
+    }, {
+      "internalType": "uint256",
+      "name": "map",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "power",
+      "type": "uint256"
+    }, {
+      "internalType": "bool",
+      "name": "active",
+      "type": "bool"
+    }],
+    "internalType": "struct AdventureTypes.Monster[]",
+    "name": "_monsters",
+    "type": "tuple[]"
+  }],
+  "name": "createMonsters",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "name": "exps",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "simbaId",
+    "type": "uint256"
+  }, {
+    "internalType": "uint256",
+    "name": "monsterId",
+    "type": "uint256"
+  }],
+  "name": "fight",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256[]",
+    "name": "ids",
+    "type": "uint256[]"
+  }],
+  "name": "getAdventureSimbas",
+  "outputs": [{
+    "components": [{
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "fightCount",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "exp",
+      "type": "uint256"
+    }],
+    "internalType": "struct Adventure.AdventureSimba[]",
+    "name": "result",
+    "type": "tuple[]"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "account",
+    "type": "address"
+  }],
+  "name": "getDaysFromLastWithdraw",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "simbaId",
+    "type": "uint256"
+  }],
+  "name": "getExp",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "account",
+    "type": "address"
+  }],
+  "name": "getLastWithdraw",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "components": [{
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+    }, {
+      "internalType": "enum AdventureTypes.SimbaClass",
+      "name": "cl",
+      "type": "uint8"
+    }, {
+      "internalType": "uint256",
+      "name": "map",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "power",
+      "type": "uint256"
+    }, {
+      "internalType": "bool",
+      "name": "active",
+      "type": "bool"
+    }],
+    "internalType": "struct AdventureTypes.Monster",
+    "name": "monster",
+    "type": "tuple"
+  }],
+  "name": "getMonsterFight",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "getMonsters",
+  "outputs": [{
+    "components": [{
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+    }, {
+      "internalType": "enum AdventureTypes.SimbaClass",
+      "name": "cl",
+      "type": "uint8"
+    }, {
+      "internalType": "uint256",
+      "name": "map",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "power",
+      "type": "uint256"
+    }, {
+      "internalType": "bool",
+      "name": "active",
+      "type": "bool"
+    }, {
+      "internalType": "uint256",
+      "name": "fightCount",
+      "type": "uint256"
+    }],
+    "internalType": "struct Adventure.DetailedMonster[]",
+    "name": "result",
+    "type": "tuple[]"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "getNow",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "getNumberOfDays",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "account",
+    "type": "address"
+  }],
+  "name": "getPendingReward",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "components": [{
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+    }, {
+      "internalType": "enum AdventureTypes.SimbaClass",
+      "name": "cl",
+      "type": "uint8"
+    }, {
+      "internalType": "uint256",
+      "name": "map",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "power",
+      "type": "uint256"
+    }, {
+      "internalType": "bool",
+      "name": "active",
+      "type": "bool"
+    }],
+    "internalType": "struct AdventureTypes.Monster",
+    "name": "monster",
+    "type": "tuple"
+  }],
+  "name": "getPrize",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "fightCount",
+    "type": "uint256"
+  }],
+  "name": "getRateByFightCount",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "simbaId",
+    "type": "uint256"
+  }],
+  "name": "getSimba",
+  "outputs": [{
+    "components": [{
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "level",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "hp",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "mp",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "st",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "ag",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "it",
+      "type": "uint256"
+    }, {
+      "internalType": "enum AdventureTypes.SimbaClass",
+      "name": "cl",
+      "type": "uint8"
+    }],
+    "internalType": "struct AdventureTypes.Simba",
+    "name": "",
+    "type": "tuple"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "simbaId",
+    "type": "uint256"
+  }],
+  "name": "getSimbaFight",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "components": [{
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "level",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "hp",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "mp",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "st",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "ag",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "it",
+      "type": "uint256"
+    }, {
+      "internalType": "enum AdventureTypes.SimbaClass",
+      "name": "cl",
+      "type": "uint8"
+    }],
+    "internalType": "struct AdventureTypes.Simba",
+    "name": "simba",
+    "type": "tuple"
+  }, {
+    "components": [{
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+    }, {
+      "internalType": "enum AdventureTypes.SimbaClass",
+      "name": "cl",
+      "type": "uint8"
+    }, {
+      "internalType": "uint256",
+      "name": "map",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "power",
+      "type": "uint256"
+    }, {
+      "internalType": "bool",
+      "name": "active",
+      "type": "bool"
+    }],
+    "internalType": "struct AdventureTypes.Monster",
+    "name": "monster",
+    "type": "tuple"
+  }],
+  "name": "getSimbaPower",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "",
+    "type": "address"
+  }],
+  "name": "lastWithdrawAts",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "monsterCount",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "monsterFightLimitPerDay",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }, {
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "name": "monsterFightsByDay",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "name": "monsters",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "id",
+    "type": "uint256"
+  }, {
+    "internalType": "enum AdventureTypes.SimbaClass",
+    "name": "cl",
+    "type": "uint8"
+  }, {
+    "internalType": "uint256",
+    "name": "map",
+    "type": "uint256"
+  }, {
+    "internalType": "uint256",
+    "name": "power",
+    "type": "uint256"
+  }, {
+    "internalType": "bool",
+    "name": "active",
+    "type": "bool"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "owner",
+  "outputs": [{
+    "internalType": "address",
+    "name": "",
+    "type": "address"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "ownerWithdrawMatic",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "amount",
+    "type": "uint256"
+  }, {
+    "internalType": "contract IERC20",
+    "name": "erc20",
+    "type": "address"
+  }],
+  "name": "ownerWithdrawToken",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "_newOwner",
+    "type": "address"
+  }],
+  "name": "proposeNewOwner",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "name": "rateByFightCounts",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "",
+    "type": "address"
+  }],
+  "name": "rewards",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "contract Blacklister",
+    "name": "_blacklister",
+    "type": "address"
+  }],
+  "name": "setBlacklister",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "_monsterFightLimitPerDay",
+    "type": "uint256"
+  }, {
+    "internalType": "uint256",
+    "name": "_simbaFightLimitPerDay",
+    "type": "uint256"
+  }],
+  "name": "setDailyLimits",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "maxSimbaCount",
+    "type": "uint256"
+  }],
+  "name": "setMaxSimbaCount",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "newBasePrizeRate",
+    "type": "uint256"
+  }, {
+    "internalType": "uint256",
+    "name": "newRepeatAfter",
+    "type": "uint256"
+  }, {
+    "internalType": "uint256",
+    "name": "newReduceEachTime",
+    "type": "uint256"
+  }],
+  "name": "setPrizeConfig",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "contract IWheel",
+    "name": "_wheel",
+    "type": "address"
+  }],
+  "name": "setWheel",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "_MIN_DAYS_BETWEEN_WITHDRAWS",
+    "type": "uint256"
+  }, {
+    "internalType": "uint256",
+    "name": "_WITHDRAW_FEE",
+    "type": "uint256"
+  }, {
+    "internalType": "uint256",
+    "name": "_SKIP_WITHDRAW_FEE_DAYS",
+    "type": "uint256"
+  }],
+  "name": "setWithdrawValues",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "simbaFightLimitPerDay",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }, {
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "name": "simbaFightsByDay",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "uint256",
+    "name": "milis",
+    "type": "uint256"
+  }],
+  "name": "skipMilis",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "skippedTime",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "supervisor",
+  "outputs": [{
+    "internalType": "address",
+    "name": "",
+    "type": "address"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "_newOwner",
+    "type": "address"
+  }],
+  "name": "transferOwnership",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "components": [{
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+    }, {
+      "internalType": "enum AdventureTypes.SimbaClass",
+      "name": "cl",
+      "type": "uint8"
+    }, {
+      "internalType": "uint256",
+      "name": "map",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "power",
+      "type": "uint256"
+    }, {
+      "internalType": "bool",
+      "name": "active",
+      "type": "bool"
+    }],
+    "internalType": "struct AdventureTypes.Monster",
+    "name": "monster",
+    "type": "tuple"
+  }],
+  "name": "updateMonster",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "withdraw",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "",
+    "type": "address"
+  }],
+  "name": "withdrewRewards",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}]
