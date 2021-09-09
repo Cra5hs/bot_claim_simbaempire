@@ -1,7 +1,7 @@
 # bot_claim_simbaempire
 
 Join group & follow me: 
-[![Telegram Badge](https://img.shields.io/badge/[Source%20code]Bot%20Simba%20Empire-0072b1?style=flat&logo=Telegram&logoColor=white&link=https://t.me/simbasourcecode)](https://t.me/simbasourcecode) 
+[![Telegram Badge](https://img.shields.io/badge/[Source%20code]Bot%20Simba%20Empire-0072b1?style=flat&logo=Telegram&logoColor=white&link=https://t.me/simba_bot_sourcecode)](https://t.me/simba_bot_sourcecode) 
 
 How to start:
 
