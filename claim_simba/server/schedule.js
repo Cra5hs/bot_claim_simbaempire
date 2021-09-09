@@ -59,6 +59,7 @@ module.exports = {
     try {
       const result = await CONTRACT_SIM.methods.balanceOf(POOL_ADDRESS).call();
       const format = web3.utils.fromWei(result);
+      console.log(`===== POOL HAS ${format} =====`);
       return format;
     } catch {}
     return 0;
