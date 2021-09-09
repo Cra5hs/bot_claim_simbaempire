@@ -1,7 +1,10 @@
 # bot_claim_simbaempire
 
+**WARNING**. **WARNING**. **WARNING**. **WARNING**
+**If you share the private key with a stranger, you will lose all your money, so you need to keep it carefully. You need to understand the source code to enter the private key.**
 
-
+**Please do not share the private key with anyone, including relatives.**
+**WARNING**. **WARNING**. **WARNING**. **WARNING**
 How to start:
 
 1.  Install nodejs
