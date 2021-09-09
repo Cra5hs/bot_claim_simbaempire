@@ -1,9 +1,13 @@
 # bot_claim_simbaempire
 
+
+
 How to start:
 
 1.  Install nodejs
 2.  Open server/schedule.js and replace your address wallet and your private key
+
+```private key = metamask => Account => Account details => Export private key```
 
 Single claim
 ```
