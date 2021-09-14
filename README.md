@@ -37,3 +37,6 @@ const address = [{
 5.  ```npm run start:proc```
 
 Waitting and claim, Enjoy!!
+```
+Donate: 0xECd6fa6cD46F6a04b9A85Bfc86BF2a2ac601eb93 (MATIC)
+```
